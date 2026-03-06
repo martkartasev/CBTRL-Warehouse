@@ -1,6 +1,4 @@
-\# Installation
+# Installation
 
-
-
-Ensure you have the (UnityVecEnv pip package)[https://github.com/martkartasev/UnityVecEnv] installed 
+Ensure you have the [UnityVecEnv](https://github.com/martkartasev/UnityVecEnv) pip package installed in your python environment.
 
