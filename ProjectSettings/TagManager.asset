@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - robot
+  - environment
+  - box
+  - lift
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - A1
+  - Water
+  - UI
+  - Body
+  - Wheel
+  - DynamicEnv
+  - A2
+  - A3
+  - A4
+  - A5
+  - A6
+  - A7
+  - A8
+  - A9
+  - A10
+  - A11
+  - A12
+  - A13
+  - A14
+  - A15
+  - A16
+  - A17
+  - A18
+  - A19
+  - A20
+  - A21
+  - A22
+  - A23
+  - A24
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  m_RenderingLayers:
+  - Default
