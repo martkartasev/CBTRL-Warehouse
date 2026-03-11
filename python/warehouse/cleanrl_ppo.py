@@ -209,12 +209,15 @@ def run_ppo(args: Args, make_env: Callable[[Args], Any]) -> None:
             rewards[step] = torch.tensor(reward).to(device).view(-1)
             next_obs, next_done = torch.Tensor(next_obs).to(device), torch.Tensor(next_done).to(device)
 
-            if "final_info" in infos:
-                for info in infos["final_info"]:
-                    if info and "episode" in info:
-                        sum_episode_return += info["episode"]["r"]
-                        sum_episode_length += info["episode"]["l"]
-                        episode_count += 1
+            if "episode" in infos:
+                episode_mask = infos.get("_episode")
+                if episode_mask is None:
+                    episode_mask = np.ones_like(infos["episode"]["r"], dtype=bool)
+                episode_mask = np.asarray(episode_mask, dtype=bool)
+                if episode_mask.any():
+                    sum_episode_return += float(np.asarray(infos["episode"]["r"])[episode_mask].sum())
+                    sum_episode_length += int(np.asarray(infos["episode"]["l"])[episode_mask].sum())
+                    episode_count += int(episode_mask.sum())
 
         # bootstrap value if not done
         with torch.no_grad():
